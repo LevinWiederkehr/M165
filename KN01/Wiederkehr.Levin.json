@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "67cae9dfbcf395f78b58a6a6"
+  },
+  "Name": "Levin Wiederkehr",
+  "Adresse": "Teststrasse 1, Test",
+  "Grösse": 182,
+  "Geburtsdatum": {
+    "$date": "2025-03-07T13:45:00.000Z"
+  }
+}]
