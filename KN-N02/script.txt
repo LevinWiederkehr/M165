@@ -1,0 +1,54 @@
+// Musikdatenbank CREATE-Statement
+CREATE 
+// Künstler erstellen
+(k1:Künstler {ID: 1, Name: "TJ_beastboy", Land: "Deutschland", Genre: "Pop Rap"}),
+(k2:Künstler {ID: 2, Name: "Marvin Gaye", Land: "USA", Genre: "Soul"}),
+(k3:Künstler {ID: 3, Name: "Michael Jackson", Land: "USA", Genre: "Contemporary R&B"}),
+(k4:Künstler {ID: 4, Name: "Juice WRLD", Land: "USA", Genre: "Pop Rap"}),
+
+// Alben erstellen
+(a1:Album {ID: 101, Titel: "MATHEMATIC-RAPADDICT", Jahr: 2023, Genre: "Pop Rap"}),
+(a2:Album {ID: 102, Titel: "Whats Going On", Jahr: 1971, Genre: "Progressive Soul"}),
+(a3:Album {ID: 103, Titel: "Thriller", Jahr: 1982, Genre: "Dance-Pop"}),
+(a4:Album {ID: 104, Titel: "Legends Never Die", Jahr: 2020, Genre: "Emo Rap"}),
+
+// Songs erstellen
+(s1:Song {ID: 1001, Titel: "EMPTY THE CLiP", Dauer: 2.58, Tracknummer: 4}),
+(s2:Song {ID: 1002, Titel: "LESSONS", Dauer: 3.15, Tracknummer: 5}),
+(s3:Song {ID: 1003, Titel: "Whats Going On", Dauer: 4.00, Tracknummer: 1}),
+(s4:Song {ID: 1004, Titel: "Right On", Dauer: 7.15, Tracknummer: 7}),
+(s5:Song {ID: 1005, Titel: "Billie Jean", Dauer: 4.54, Tracknummer: 6}),
+(s6:Song {ID: 1006, Titel: "Beat It", Dauer: 4.18, Tracknummer: 5}),
+(s7:Song {ID: 1007, Titel: "Righteous", Dauer: 4.02, Tracknummer: 5}),
+(s8:Song {ID: 1008, Titel: "I Want It", Dauer: 2.53, Tracknummer: 12}),
+
+// Playlists erstellen
+(p1:Playlist {ID: 10001, Name: "Meine Lieblingslieder", Erstellungsdatum: date("2024-01-15")}),
+(p2:Playlist {ID: 10002, Name: "Workout Mix", Erstellungsdatum: date("2024-02-20")}),
+(p3:Playlist {ID: 10003, Name: "Klassische Highlights", Erstellungsdatum: date("2024-03-10")}),
+
+// Beziehungen zwischen Album und Künstler erstellen
+(a1)-[:hat]->(k1),
+(a2)-[:hat]->(k2),
+(a3)-[:hat]->(k3),
+(a4)-[:hat]->(k4),
+
+// Beziehungen zwischen Album und Songs erstellen
+(a1)-[:enthält]->(s1),
+(a1)-[:enthält]->(s2),
+(a2)-[:enthält]->(s3),
+(a2)-[:enthält]->(s4),
+(a3)-[:enthält]->(s5),
+(a3)-[:enthält]->(s6),
+(a4)-[:enthält]->(s7),
+(a4)-[:enthält]->(s8),
+
+// Beziehungen zwischen Songs und Playlists erstellen
+(s1)<-[:referenziert]-(p1),
+(s3)<-[:referenziert]-(p1),
+(s6)<-[:referenziert]-(p1),
+(s1)<-[:referenziert]-(p2),
+(s2)<-[:referenziert]-(p2),
+(s3)<-[:referenziert]-(p2),
+(s6)<-[:referenziert]-(p3),
+(s7)<-[:referenziert]-(p3)
